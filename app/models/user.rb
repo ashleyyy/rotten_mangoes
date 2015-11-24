@@ -12,7 +12,7 @@ validates :lastname,
   presence: true
 
 validates :password,
-  length: { in 6..20 }, on: :create
+  length: { in: 6..20 }, on: :create
 
 
 end
