@@ -2,10 +2,12 @@
   <small>
     <% if current_user %>
       Signed in as <%= current_user.full_name %> (<%= link_to "Log Out", session_path("current"), method: :delete %>) |
-      <% if current_user.admin? %><%= link_to "Admin Page", admin_users_path %>
+      <% if current_user.admin? %><%= link_to "All Users", admin_users_path %>
       <% end %>
+       | <%= link_to "All Movies", movies_path %>
     <% else %>
       <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
-    <% end %>
+    <% end %> 
+    | <%= link_to "All Movies", movies_path %>
   </small>
 </footer>

@@ -38,7 +38,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# User carrierwave to upload images
+# Use carrierwave to upload images
 gem 'carrierwave'
 gem 'rmagick'
+
+# Use kaminari for paginatio
+gem 'kaminari'
 

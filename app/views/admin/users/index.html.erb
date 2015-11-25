@@ -1,9 +1,13 @@
 <h1>Admin::Users#index</h1>
 
-<hr>
-<% @users.each do |user| %>
-  <h2><%= link_to user.full_name, admin_user_path(user) %> <%= "(admin)" if user.admin? %></h2>
-  <h3><%= user.email %></h3>
+<%= paginate @users %>
 
-  <hr>
+<hr>
+<div>
+<% @users.each do |user| %>
+  <div class = "col-md-3 col-sm-6"><h2><%= link_to user.full_name, admin_user_path(user) %> <%= "(admin)" if user.admin? %></h2>
+  <h3><%= user.email %></h3>
+  </div>
+
 <% end %>
+</div>
