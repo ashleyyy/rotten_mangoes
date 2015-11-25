@@ -12,6 +12,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_admin
+    if !current_user.admin?
+      flash[:alert] = "You don't have that privilege."
+      redirect_to movies_path
+    end
+  end
+
   def current_user
     @current_user ||=User.find(session[:user_id]) if session[:user_id]
   end

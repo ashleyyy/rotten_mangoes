@@ -32,10 +32,8 @@
     <%= f.password_field :password_confirmation %>
   </div>
   <div>
-    <%= radio_button_tag(:admin, true) %>
-    <%= label_tag(:admin, "admin") %>
-    <%= radio_button_tag(:admin, false) %>
-    <%= label_tag(:admin, "user") %>
+    <%= f.check_box :admin %>
+    <%= f.label :admin, "admin" %>
   </div>
   <div><%= f.submit "Submit" %></div>
 <% end %>

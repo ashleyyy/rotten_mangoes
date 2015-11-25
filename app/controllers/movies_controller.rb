@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+
   def index
     @movies = Movie.all
   end
@@ -8,14 +9,17 @@ class MoviesController < ApplicationController
   end
 
   def new
+    restrict_access
     @movie = Movie.new
   end
 
   def edit
+    restrict_access
     @movie = Movie.find(params[:id])
   end
 
   def create
+    restrict_access
     @movie = Movie.new(movie_params)
 
     if @movie.save
@@ -26,6 +30,7 @@ class MoviesController < ApplicationController
   end
 
   def update
+    restrict_access
     @movie = Movie.find(params[:id])
 
     if @movie.update_attributes(movie_params)
@@ -36,6 +41,7 @@ class MoviesController < ApplicationController
   end
 
   def destroy
+    restrict_access
     @movie = Movie.find(params[:id])
     @movie.destroy
     redirect_to movies_path
