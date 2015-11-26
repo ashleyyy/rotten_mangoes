@@ -3,7 +3,7 @@
 <%= paginate @users %>
 
 <hr>
-<div>
+<div class="row">
 <% @users.each do |user| %>
   <div class = "col-md-3 col-sm-6"><h2><%= link_to user.full_name, admin_user_path(user) %> <%= "(admin)" if user.admin? %></h2>
   <h3><%= user.email %></h3>
@@ -11,3 +11,4 @@
 
 <% end %>
 </div>
+<hr>

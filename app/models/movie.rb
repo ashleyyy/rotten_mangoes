@@ -2,6 +2,9 @@ class Movie < ActiveRecord::Base
 
   has_many :reviews
   mount_uploader :image, ImageUploader
+
+  # scope :by_title, lambda { |title| where(:title => title)}
+  # scope :by_director, lambda { |director| where(:director => director)}
   
   validates :title,
     presence: true
@@ -27,10 +30,10 @@ class Movie < ActiveRecord::Base
       reviews.sum(:rating_out_of_ten)/reviews.size unless reviews.size == 0
     end
 
-    def self.search(search)
-      where("title LIKE ?", "%#{search}%")
-      where("description LIKE ?", "%#{search}%")
-    end
+    # def self.search(search)
+    #   where("title LIKE ?", "%#{search}%")
+    # end
+
 
     protected
 
