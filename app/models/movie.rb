@@ -5,7 +5,7 @@ class Movie < ActiveRecord::Base
 
   scope :search, lambda { |title, director, runtime_in_minutes| 
     where("title LIKE ?", "%#{title}%").where("director LIKE ?","%#{director}%").where("runtime_in_minutes #{runtime_in_minutes}") }
-  # scope :paged, lambda { page(params[:page]).per(5) }
+  scope :paged, lambda { |page| page(page).per(5) }
   
   validates :title,
     presence: true

@@ -3,7 +3,8 @@
 
 <%= render 'search_form' %>
 
-<%# paginate @movies %>
+<%= paginate @movies %>
+
 <hr>
 <% if @movies.present? %>
   <% @movies.each do |movie| %>
