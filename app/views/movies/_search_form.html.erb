@@ -1,17 +1,25 @@
-<%= form_tag(movies_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :title_director, params[:title_director], placeholder: "Search Movies and Directors" %><br/ >
+<form class="form-inline">
 
+<div class="form-group">
+<%= form_tag(movies_path, :method => "get", class: "search-form") do %>
+<%=label_tag :title_director, "Title or Director: " %>
+<%= text_field_tag :title_director, params[:title_director], placeholder: "Search", class: "form-control"%><br/ >
+</div>
 
-<%= select_tag(:runtime_in_minutes, options_for_select([["Under 90 minutes", "<90"], ["Between 90 and 120 minutes", "BETWEEN 90 AND 120"], ["Over 120 minutes", ">120"]])) %><br />
+<div class="form-group">
+<%=label_tag :runtime_in_minutes, "Runtime in minutes: " %>
+<%= select_tag(:runtime_in_minutes, options_for_select([["Any", nil],["Under 90 minutes", "<90"], ["Between 90 and 120 minutes", "BETWEEN 90 AND 120"], ["Over 120 minutes", ">120"]])) %><br />
+</div>
 
-
-
-<%= submit_tag "Search", :name => nil %>
-
-
+<div class ="form-group">
+<%= submit_tag "Search", :name => nil, class: "btn btn-default"%>
+</div>
 <%end%>
 
-<%= form_tag(movies_path, :method => "get", id: "search-form") do %>
-<%= submit_tag "Show All" %>
-
+<div class ="form-group">
+<%= form_tag(movies_path, :method => "get", class: "search-form") do %>
+<%= submit_tag "Clear Form", :name => nil, class: "btn btn-default"%>
+</div>
 <% end %>
+
+</form>
