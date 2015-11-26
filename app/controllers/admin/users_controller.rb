@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_filter :require_admin
 
   def index
-    @users = User.all.page(params[:page]).per(10)
+    @users = User.all.paged(params[:page])
   end
 
   def new

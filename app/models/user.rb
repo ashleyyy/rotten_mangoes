@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  scope :paged, lambda { |page| page(page).per(10) }
+
   validates :email,
     presence: true
 
