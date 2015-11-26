@@ -2,9 +2,9 @@ class MoviesController < ApplicationController
 
   def index #search works but only from the original URL
     if params[:title] && params[:director]
-      @movies = Movie.where("title LIKE ?", "%#{params[:title]}%").where("director LIKE ?", "%#{params[:director]}%").where("runtime_in_minutes #{params[:runtime_in_minutes][0]}").page(params[:page]).per(5)
+      @movies = Movie.search(params[:title], params[:director], params[:runtime_in_minutes][0])
     else
-      @movies = Movie.all.page(params[:page]).per(5)
+      @movies = Movie.all
     end
   end
 
