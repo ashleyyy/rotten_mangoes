@@ -72,7 +72,7 @@ namespace :db do
       :description => "A married couple takes a vacation in France in the 1970s and find that their time in a sleepy seaside town, complete with a unique array of locals, strengthens their bond and reaffirms their marriage."
     )
 
-      Movie.create!(
+    Movie.create!(
       :title => "The Peanuts Movie", 
       :release_date => "2015-11-06", 
       :director => "Steve Martino", 
@@ -80,5 +80,27 @@ namespace :db do
       :remote_image_url => "http://ia.media-imdb.com/images/M/MV5BMTU1MzAxOTY2MV5BMl5BanBnXkFtZTgwNzYzMzM5NTE@._V1_SX640_SY720_.jpg", 
       :description => "Charlie Brown, Snoopy, Lucy, Linus and the rest of the beloved 'Peanuts' gang make their big-screen debut, like they've never been seen before, in state of the art 3D animation. Charlie Brown, the world's most beloved underdog, embarks upon an epic and heroic quest, while his best pal, the lovable beagle Snoopy, takes to the skies to pursue his arch-nemesis, the Red Baron."
     )
+
+    Review.create!(
+      user_id: 1, 
+      movie_id: 1,
+      text: "This movie was god awful.",
+      rating_out_of_ten: 3
+    )
+
+    Review.create!(
+      user_id: 2, 
+      movie_id: 1,
+      text: "This movie was pretty bad.",
+      rating_out_of_ten: 2
+    )
+
+    Review.create!(
+      user_id: 3, 
+      movie_id: 1,
+      text: "I want my money back",
+      rating_out_of_ten: 5
+    )
+      
     end
 end
