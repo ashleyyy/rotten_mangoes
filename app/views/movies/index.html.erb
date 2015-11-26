@@ -7,9 +7,7 @@
 
 <hr>
 <% if @movies.present? %>
-  <% @movies.each do |movie| %>
-   <%= render partial: 'movie', locals: {movie: movie} %>
-  <% end %>
+   <%= render partial: 'movie', collection: @movies %>
 <% else %>
   <p>Your search returned no results<%= params[:search] %>.</p>
 <% end %>

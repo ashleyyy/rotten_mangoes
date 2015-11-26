@@ -1,25 +1,20 @@
-    <%= link_to "Back to all movies", movies_path %><br/>
+<%= link_to "Back to all movies", movies_path %><br/>
 
-    <%= link_to image_tag(@movie.image_url(:full).to_s), movie_path(@movie) %>
-    <h2><%= @movie.title %> <% if current_user %>(<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, :data => { :confirm => 'You sure?' } %>)</h2><% end %>
-    <h3><%= @movie.review_average || "0" %>/10</h3>
-    <h3><%= formatted_date(@movie.release_date) %></h3>
-    <h4>Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h4>
-    <p><%= @movie.description %></p>
+<%= link_to image_tag(@movie.image_url(:full).to_s), movie_path(@movie) %>
 
-    <hr>
+<h2> 
+<% if current_user %>
+    (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, :data => { :confirm => 'You sure?' } %>)
+<% end %>
+</h2>
 
-    <h3>Reviews of <em><%= @movie.title %></em></h3>
-    <% if current_user %>
-      <% @movie.reviews.each do |review| %>
-        <div class ="well">
-            <p><%= review.text %></p>
-            <p><%= review.rating_out_of_ten %>/10</p>
-            <small> <%= link_to user_path do %><%= review.user.full_name %><% end %> </small><br />
-        </div>
-      <% end %>
-      <p><%= link_to "Write a review!", new_movie_review_path(@movie) %>
-    <% else %>
-      <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own. </p>
-    <% end %>
-    <hr>
+<%= render partial: 'movie_info', locals: {movie: @movie} %>
+
+<h3>Reviews of <em><%= @movie.title %></em></h3>
+<% if current_user %>
+  <%= render @movie.reviews %>
+  <p><%= link_to "Write a review!", new_movie_review_path(@movie) %>
+<% else %>
+  <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own. </p>
+<% end %>
+<hr>

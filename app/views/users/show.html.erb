@@ -4,11 +4,4 @@
 
   <h3>Reviews</h3>
 
-      <% @user.reviews.each do |review| %>
-        <div class ="well">
-            <p><%= link_to movie_path do %><%= review.movie.title %><% end %>
-            <p><%= review.text %></p>
-            <p><%= review.rating_out_of_ten %>/10</p>
-            <small>- <%= review.user.full_name %> </small><br />
-        </div>
-      <% end %>
+<%= render @reviews %>
