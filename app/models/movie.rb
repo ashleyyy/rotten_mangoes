@@ -3,8 +3,8 @@ class Movie < ActiveRecord::Base
   has_many :reviews
   mount_uploader :image, ImageUploader
 
-  scope :search, lambda { |title, director, runtime_in_minutes| 
-    where("title LIKE ?", "%#{title}%").where("director LIKE ?","%#{director}%").where("runtime_in_minutes #{runtime_in_minutes}") }
+  scope :search, lambda { |title_director, runtime_in_minutes| 
+    where("title LIKE ? OR director LIKE ?", "%#{title_director}%", "%#{title_director}%").where("runtime_in_minutes #{runtime_in_minutes}") }
   scope :paged, lambda { |page| page(page).per(5) }
   
   validates :title,

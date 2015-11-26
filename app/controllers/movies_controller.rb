@@ -1,8 +1,8 @@
 class MoviesController < ApplicationController
 
   def index #search works but only from the original URL
-    if params[:title] && params[:director]
-      @movies = Movie.search(params[:title], params[:director], params[:runtime_in_minutes][0]).paged(params[:page])
+    if params[:title_director]
+      @movies = Movie.search(params[:title_director], params[:runtime_in_minutes]).paged(params[:page])
     else
       @movies = Movie.all.paged(params[:page])
     end

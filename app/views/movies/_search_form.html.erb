@@ -1,6 +1,17 @@
 <%= form_tag(movies_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :title, params[:title], placeholder: "Search Movies" %><br/ >
-<%= text_field_tag :director, params[:director], placeholder: "Search Directors" %><br />
-<%= select(:runtime_in_minutes, params[:runtime_in_minutes], [["Under 90 minutes", "<90"], ["Between 90 and 120 minutes", "BETWEEN 90 AND 120"], ["Over 120 minutes", ">120"]]) %><br />
+<%= text_field_tag :title_director, params[:title_director], placeholder: "Search Movies and Directors" %><br/ >
+
+
+<%= select_tag(:runtime_in_minutes, options_for_select([["Under 90 minutes", "<90"], ["Between 90 and 120 minutes", "BETWEEN 90 AND 120"], ["Over 120 minutes", ">120"]])) %><br />
+
+
+
 <%= submit_tag "Search", :name => nil %>
+
+
+<%end%>
+
+<%= form_tag(movies_path, :method => "get", id: "search-form") do %>
+<%= submit_tag "Show All" %>
+
 <% end %>
