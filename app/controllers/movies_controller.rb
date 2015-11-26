@@ -1,7 +1,12 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = Movie.all.page(params[:page]).per(5)
+    @allmovies = Movie.all.page(params[:page]).per(5)
+    if params[:search]
+      @movies = Movie.search(params[:search])
+    else
+      @movies = Movie.all
+    end
   end
 
   def show

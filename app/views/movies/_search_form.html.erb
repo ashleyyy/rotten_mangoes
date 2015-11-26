@@ -1,0 +1,30 @@
+<% form_tag movies_path, :method => 'get' do %>
+  <div>
+    <%= label :movie, :title %><br>
+     <%= search_field(:movie, :title) %>
+  </div>
+  <div>
+    <%= label :movie, :release_date %><br>
+      <%= search_field(:movie, :release_date) %>
+  </div>
+  <div>
+    <%= label :movie, :director %><br>
+     <%= search_field(:movie, :director) %>
+  </div>
+  <div>
+    <%= label :movie, :runtime_in_minutes %><br>
+     <%= search_field(:movie, :runtime_in_minutes) %>
+  </div>
+  <div>
+    <%= label :movie, :description %><br>
+    <%= search_field(:movie, :description) %>
+  </div>
+  <div>
+    <%= submit_tag "Search", :name => nil %> 
+  </div>
+<% end %>
+  
+<%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+<%= submit_tag "Search" %>
+<% end %>
