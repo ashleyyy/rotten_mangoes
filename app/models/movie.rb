@@ -19,9 +19,6 @@ class Movie < ActiveRecord::Base
     validates :description,
       presence: true
 
-    # validates :poster_image_url,
-    #   presence: true
-
     validates :release_date,
       presence: true
 
@@ -30,11 +27,6 @@ class Movie < ActiveRecord::Base
     def review_average
       reviews.sum(:rating_out_of_ten)/reviews.size unless reviews.size == 0
     end
-
-    # def self.search(search)
-    #   where("title LIKE ?", "%#{search}%")
-    # end
-
 
     protected
 

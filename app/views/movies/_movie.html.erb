@@ -1,2 +1,5 @@
-<%= link_to image_tag(movie.image_url(:thumb).to_s), movie_path(movie) %>
-<%= render partial: 'movie_info', locals: {movie: movie} %>
+<div class="row">
+<div class="col-md-3"><%= link_to image_tag(movie.image_url(:thumb).to_s), movie_path(movie) %></div>
+<div class="col-md-9"><%= render partial: 'movie_info', locals: {movie: movie} %></div>
+</div>
+<hr>

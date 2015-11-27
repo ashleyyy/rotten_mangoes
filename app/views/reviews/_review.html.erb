@@ -2,6 +2,6 @@
     <p><%= link_to movie_path do %><%= review.movie.title %><% end %>
     <p><%= review.text %></p>
     <p><%= review.rating_out_of_ten %>/10</p>
-    <small>- <%= review.user.full_name %> </small><br />
+    <small><%= link_to user_path do %> <%= review.user.full_name %><% end %> </small><br />
 </div>
 

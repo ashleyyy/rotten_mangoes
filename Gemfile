@@ -42,6 +42,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave'
 gem 'rmagick'
 
-# Use kaminari for paginatio
+# Use kaminari for pagination
 gem 'kaminari'
 
+#Use bootstrap for bootstrapping
+gem 'bootstrap-sass', '~> 3.3.6'

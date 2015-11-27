@@ -1,14 +1,19 @@
-<%= link_to "Back to all movies", movies_path %><br/>
+<%= link_to "Back to all movies", movies_path %><br/><br/>
 
-<%= link_to image_tag(@movie.image_url(:full).to_s), movie_path(@movie) %>
+<div class="row">
+  <div class="col-md-4">
+  <%= link_to image_tag(@movie.image_url(:full).to_s), movie_path(@movie) %>
 
-<h2> 
-<% if current_user %>
-    (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, :data => { :confirm => 'You sure?' } %>)
-<% end %>
-</h2>
-
-<%= render partial: 'movie_info', locals: {movie: @movie} %>
+  <h4> 
+  <% if current_user %>
+      (<%= link_to "edit", edit_movie_path(@movie) %> | <%= link_to "delete", movie_path(@movie), method: :delete, :data => { :confirm => 'You sure?' } %>)
+  <% end %>
+  </h4>
+  </div>
+  <div class="col-md-8">
+  <%= render partial: 'movie_info', locals: {movie: @movie} %>
+  </div>
+</div>
 
 <h3>Reviews of <em><%= @movie.title %></em></h3>
 <% if current_user %>
@@ -17,4 +22,5 @@
 <% else %>
   <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own. </p>
 <% end %>
+
 <hr>
