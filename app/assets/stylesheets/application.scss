@@ -2,3 +2,28 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+#clear-form {
+    display: inline;
+    position: relative;
+    top: -40px;
+    left: 80px;
+}
+
+#submit-form {
+    display: inline;
+    position: relative;
+    top: 10px;
+
+}
+
+.search-form {
+  height: 0px;
+}
+
+#title_director {
+  width: 100%
+}
+
+#runtime_in_minutes {
+  width: 100%
+}

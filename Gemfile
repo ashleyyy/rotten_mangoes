@@ -46,4 +46,4 @@ gem 'rmagick'
 gem 'kaminari'
 
 #Use bootstrap for bootstrapping
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass'
